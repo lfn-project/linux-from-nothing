@@ -1,0 +1,22 @@
+#!/bin/sh
+[ -n "$1" ] || { echo "Error: should be called from udhcpc"; exit 1; }
+
+case "$1" in
+    deconfig)
+        ifconfig $interface 0.0.0.0
+        ;;
+    renew|bound)
+        ifconfig $interface $ip netmask $subnet
+        if [ -n "$router" ] ; then
+            route add default gw $router dev $interface
+        fi
+        if [ -n "$dns" ] ; then
+            echo -n "" > /etc/resolv.conf
+            for i in $dns ; do
+                echo "nameserver $i" >> /etc/resolv.conf
+            done
+        fi
+        ;;
+esac
+exit 0
+
