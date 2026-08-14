@@ -18,9 +18,9 @@ Instead of maintaining a massive distribution with infinite package updates, LFN
 
 ## 🛠️ Project Status
 This project is currently under active development. 
-* [ ] Base ISO Build Scripts (Using Archiso)
+* [ ] Base ISO Build
 * [ ] Step-by-Step Educational Manual
-* [ ] Initial Release v1.0
+* [ ] Initial Release Alpha v0.1
 
 ---
 
